@@ -93,7 +93,7 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Toast.makeText(MainActivity.this,
-                        sCal.get(Calendar.YEAR)+"/"+ MainActivity.this, sCal.get(Calendar.MONTH)).show();
+                        sCal.get(Calendar.YEAR)+"."+ MainActivity.this, sCal.get(Calendar.MONTH)).show();
             }
         });
 
