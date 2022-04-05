@@ -28,12 +28,13 @@ import android.view.View.OnClickListener;
 
 import android.view.ViewGroup;
 
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 
 import android.widget.GridView;
 
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
@@ -79,9 +80,22 @@ public class MainActivity extends Activity {
         //setCalendarDate(mCal.get(Calendar.MONTH) + 1);
         sCal.set(Calendar.MONTH, mCal.get(Calendar.MONTH) - 1);
 
+        Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int date = c.get(Calendar.DATE);
+        c.set(year, month, date);
+
         for (int i = 0; i < sCal.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
             dayList.add("" + (i + 1));
         }
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(MainActivity.this,
+                        sCal.get(Calendar.YEAR)+"/"+ MainActivity.this, sCal.get(Calendar.MONTH)).show();
+            }
+        });
 
         gridAdapter = new GridAdapter(getApplicationContext(), dayList);
         gridView.setAdapter(gridAdapter);
