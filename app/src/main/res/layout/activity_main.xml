@@ -96,8 +96,6 @@
         android:layout_height="match_parent"
         android:numColumns="7" >
 
-
-
     </GridView>
 
 

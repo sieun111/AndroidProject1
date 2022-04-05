@@ -7,7 +7,6 @@ import android.os.Bundle;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-    static MyAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
